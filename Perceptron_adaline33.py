@@ -104,14 +104,14 @@ new_y_pred_perceptron = perceptron.predict(new_data)
 new_y_pred_adaline = adaline.predict(new_data)
 
 # Criar DataFrames para os novos resultados e exibir
-tabela_novos_perceptron = pd.DataFrame({
+tabela_novos_perceptron33 = pd.DataFrame({
     "x1": new_data[:, 0],
     "x2": new_data[:, 1],
     "x3": new_data[:, 2],
     "y (Perceptron)": new_y_pred_perceptron
 })
 
-tabela_novos_adaline = pd.DataFrame({
+tabela_novos_adaline33 = pd.DataFrame({
     "x1": new_data[:, 0],
     "x2": new_data[:, 1],
     "x3": new_data[:, 2],
@@ -120,10 +120,10 @@ tabela_novos_adaline = pd.DataFrame({
 
 # Exibir os resultados
 print("Tabela Novos Dados - Perceptron:")
-print(tabela_novos_perceptron)
+print(tabela_novos_perceptron33)
 print("\nTabela Novos Dados - Adaline:")
-print(tabela_novos_adaline)
+print(tabela_novos_adaline33)
 
 # Opcional: salvar os resultados em CSV
-tabela_novos_perceptron.to_csv("tabela_novos_perceptron.csv", index=False)
-tabela_novos_adaline.to_csv("tabela_novos_adaline.csv", index=False)
+tabela_novos_perceptron33.to_csv("tabela_novos_perceptron.csv", index=False)
+tabela_novos_adaline33.to_csv("tabela_novos_adaline.csv", index=False)
