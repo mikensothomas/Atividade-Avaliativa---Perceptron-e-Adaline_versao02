@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
 
-# Definindo a função de ativação para o Perceptron (degrau)
 def step_function(x):
     return np.where(x >= 0, 1, -1)
 
-# Definindo o Perceptron
 class Perceptron:
     def __init__(self, learning_rate=0.01, epochs=100):
         self.learning_rate = learning_rate
@@ -31,7 +29,6 @@ class Perceptron:
         y_pred = step_function(linear_output)
         return y_pred
 
-# Definindo o Adaline
 class Adaline:
     def __init__(self, learning_rate=0.01, epochs=100):
         self.learning_rate = learning_rate
@@ -54,7 +51,6 @@ class Adaline:
         linear_output = np.dot(X, self.weights) + self.bias
         return np.where(linear_output >= 0, 1, -1)
 
-# Carregar todos os 30 dados da tabela fornecida
 data = np.array([
     [-0.6508, 0.1097, 4.0009, -1],
     [-1.4492, 0.8896, 4.4005,-1],
@@ -89,21 +85,17 @@ data = np.array([
 
 ])
 
-# Dividir em características (X) e rótulos (y)
 X = data[:, :-1]
 y = data[:, -1]
 
-# Instanciar e treinar o Perceptron
 perceptron = Perceptron(learning_rate=0.01, epochs=10)
 perceptron.fit(X, y)
 y_pred_perceptron = perceptron.predict(X)
 
-# Instanciar e treinar o Adaline
 adaline = Adaline(learning_rate=0.01, epochs=10)
 adaline.fit(X, y)
 y_pred_adaline = adaline.predict(X)
 
-# Criar DataFrames para resultados
 tabela_perceptron32 = pd.DataFrame({
     "x1": X[:, 0],
     "x2": X[:, 1],
@@ -120,12 +112,10 @@ tabela_adaline32 = pd.DataFrame({
     "Previsão (Adaline)": y_pred_adaline
 })
 
-# Exibir as tabelas separadas para Perceptron e Adaline
 print("Tabela - Resultados Perceptron:")
 print(tabela_perceptron32)
 print("\nTabela - Resultados Adaline:")
 print(tabela_adaline32)
 
-# Opcional: salvar os resultados em CSV
 tabela_perceptron32.to_csv("tabela_resultados_perceptron.csv", index=False)
 tabela_adaline32.to_csv("tabela_resultados_adaline.csv", index=False)

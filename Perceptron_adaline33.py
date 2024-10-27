@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
 
-# Definindo a função de ativação para o Perceptron (degrau)
 def step_function(x):
     return np.where(x >= 0, 1, -1)
 
-# Definindo o Perceptron
 class Perceptron:
     def __init__(self, learning_rate=0.01, epochs=100):
         self.learning_rate = learning_rate
@@ -31,7 +29,6 @@ class Perceptron:
         y_pred = step_function(linear_output)
         return y_pred
 
-# Definindo o Adaline
 class Adaline:
     def __init__(self, learning_rate=0.01, epochs=100):
         self.learning_rate = learning_rate
@@ -54,7 +51,6 @@ class Adaline:
         linear_output = np.dot(X, self.weights) + self.bias
         return np.where(linear_output >= 0, 1, -1)
 
-# Carregar dados de treinamento
 data = np.array([
     [-0.6508, 0.1097, 4.0009, -1],
     [-1.4492, 0.8896, 4.4005, -1],
@@ -73,19 +69,15 @@ data = np.array([
     [0.2455, 0.9313, 6.6924, 1]
 ])
 
-# Dividir em características (X) e rótulos (y)
 X = data[:, :-1]
 y = data[:, -1]
 
-# Instanciar e treinar o Perceptron
 perceptron = Perceptron(learning_rate=0.01, epochs=10)
 perceptron.fit(X, y)
 
-# Instanciar e treinar o Adaline
 adaline = Adaline(learning_rate=0.01, epochs=10)
 adaline.fit(X, y)
 
-# Novo conjunto de dados para predição
 new_data = np.array([
     [-0.3665, 0.0620, 5.9891],
     [-0.7842, 1.1267, 5.5912],
@@ -99,11 +91,9 @@ new_data = np.array([
     [-1.8842, -0.2805, 1.2548]
 ])
 
-# Predição usando os modelos treinados nos novos dados
 new_y_pred_perceptron = perceptron.predict(new_data)
 new_y_pred_adaline = adaline.predict(new_data)
 
-# Criar DataFrames para os novos resultados e exibir
 tabela_novos_perceptron33 = pd.DataFrame({
     "x1": new_data[:, 0],
     "x2": new_data[:, 1],
@@ -118,12 +108,10 @@ tabela_novos_adaline33 = pd.DataFrame({
     "y (Adaline)": new_y_pred_adaline
 })
 
-# Exibir os resultados
 print("Tabela Novos Dados - Perceptron:")
 print(tabela_novos_perceptron33)
 print("\nTabela Novos Dados - Adaline:")
 print(tabela_novos_adaline33)
 
-# Opcional: salvar os resultados em CSV
 tabela_novos_perceptron33.to_csv("tabela_novos_perceptron.csv", index=False)
 tabela_novos_adaline33.to_csv("tabela_novos_adaline.csv", index=False)
