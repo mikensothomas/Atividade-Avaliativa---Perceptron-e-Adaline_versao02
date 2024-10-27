@@ -1,0 +1,38 @@
+Justificativa para o Perceptron
+
+Modelo Linear de Classificação Binária:
+O Perceptron é um modelo de classificação linear que tenta encontrar uma linha (ou hiperplano, em dimensões superiores) 
+que separe os dados em duas classes. No caso, ele foi treinado para classificar os dados em duas classes: -1 e 1.
+Isso significa que, se os dados são linearmente separáveis, o Perceptron deve ser capaz de encontrar uma solução que classifique
+os dados de maneira precisa. No entanto, se os dados não forem perfeitamente separáveis, o Perceptron poderá cometer erros de classificação.
+
+Função de Ativação em Degrau:
+O Perceptron utiliza uma função de ativação degrau, que atribui 1 ou -1 com base na soma ponderada das entradas. 
+Se a soma for maior ou igual a zero, a saída é 1; caso contrário, é -1.
+Essa função de ativação abrupta faz com que o Perceptron tome decisões binárias, o que pode ser uma limitação 
+em casos onde a relação entre as variáveis é mais complexa e não linear.
+
+Interpretação dos Resultados:
+Para os dados de previsão, o Perceptron aplicou o aprendizado obtido nos dados de treinamento para classificar
+cada exemplo em uma das duas classes.
+O Perceptron pode não ter um desempenho ideal caso os dados de previsão possuam uma estrutura complexa que não seja linearmente separável, 
+o que pode explicar eventuais classificações incorretas.
+
+Justificativa para o Adaline
+
+Modelo Linear com Ajuste Gradual:
+O Adaline (Adaptive Linear Neuron) também é um modelo linear, mas seu método de ajuste de pesos é baseado no erro quadrático médio, 
+o que permite uma aproximação mais suave e gradual.
+Em vez de uma função degrau, o Adaline utiliza uma função linear para calcular a saída antes de aplicar a regra de classificação
+final (>= 0 para 1 e < 0 para -1).
+
+Ajuste Contínuo dos Pesos com Gradiente Descendente:
+O Adaline ajusta os pesos usando o método do gradiente descendente, que minimiza o erro quadrático entre a saída prevista e a saída esperada. 
+Esse ajuste contínuo torna o Adaline menos sensível a pequenos desvios nos dados de entrada.
+No entanto, o Adaline é mais eficiente em problemas que são linearmente separáveis ou que têm uma estrutura linear aproximada.
+
+Interpretação dos Resultados:
+Ao prever as classes dos novos dados, o Adaline aplica os pesos ajustados para calcular a saída, utilizando a função linear
+para ajustar sua previsão.
+Assim como o Perceptron, o Adaline pode ter dificuldades com dados não linearmente separáveis. 
+Em casos onde os dados têm uma relação mais complexa entre as variáveis de entrada, o Adaline pode errar em algumas classificações.
